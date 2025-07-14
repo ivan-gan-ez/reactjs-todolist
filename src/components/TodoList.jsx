@@ -1,4 +1,4 @@
-import ToDoItem from "./item";
+import ToDoItem from "./TodoItem";
 
 function ToDoList() {
   return (
