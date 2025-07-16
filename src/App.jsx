@@ -1,7 +1,27 @@
+import { useState } from "react";
+
 import ToDoList from "./components/ToDoList";
 import AddTodoForm from "./components/AddTodoForm";
 
 function App() {
+  const [todos, setTodos] = useState([
+    {
+      id: 1,
+      text: "Task 1",
+      isCompleted: true,
+    },
+    {
+      id: 2,
+      text: "Task 2",
+      isCompleted: false,
+    },
+    {
+      id: 3,
+      text: "Task 3",
+      isCompleted: false,
+    },
+  ]);
+
   return (
     <div>
       <div
@@ -10,9 +30,16 @@ function App() {
       >
         <div className="card-body">
           <h3 className="card-title mb-3">My Todo List</h3>
-          <ToDoList />
+          <ToDoList list={todos} />
           <div className="mt-4">
-            <AddTodoForm />
+            <AddTodoForm
+              onAddNew={(newValue) => {
+                setTodos([
+                  ...todos,
+                  { id: Math.random(), text: newValue, isCompleted: false },
+                ]);
+              }}
+            />
           </div>
         </div>
       </div>
