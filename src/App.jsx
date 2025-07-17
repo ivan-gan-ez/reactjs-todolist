@@ -30,7 +30,7 @@ function App() {
       >
         <div className="card-body">
           <h3 className="card-title mb-3">My Todo List</h3>
-          <ToDoList list={todos} />
+          <ToDoList list={todos} setList={setTodos} />
           <div className="mt-4">
             <AddTodoForm
               onAddNew={(newValue) => {
